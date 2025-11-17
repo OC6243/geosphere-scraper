@@ -47,4 +47,5 @@ setInterval(scrapeInnsbruck, 60 * 1000);
 
 // Webstatus
 app.get("/", (req, res) => res.send("Scraper läuft"));
-app.listen(3000, () => console.log("Server gestartet"));
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log("Server gestartet auf Port", PORT));
