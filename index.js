@@ -1,6 +1,6 @@
-import express from "express";
-import fetch from "node-fetch";
-import * as cheerio from "cheerio";
+const express = require("express");
+const fetch = require("node-fetch");
+const cheerio = require("cheerio");
 
 const app = express();
 app.use(express.json());
@@ -30,13 +30,7 @@ async function scrapeInnsbruck() {
     await fetch(WEBHOOK_URL, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        date,
-        time,
-        temp,
-        hum,
-        pressAbs
-      })
+      body: JSON.stringify({ date, time, temp, hum, pressAbs })
     });
 
     console.log("Live-Daten erfolgreich gesendet:", date, time, temp, hum, pressAbs);
